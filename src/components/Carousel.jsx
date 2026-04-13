@@ -31,53 +31,37 @@ const images = [
   { src: S9, alt: "StaySync screenshot 9" },
 ];
 export default function Carousel() {
-  const trackRef = useRef(null);
-  const [lightbox, setLightbox] = useState(null);
+  const [cur, setCur] = useState(0);
 
-  const scroll = (dir) => {
-    if (trackRef.current) {
-      trackRef.current.scrollBy({ left: dir * 260, behavior: "smooth" });
-    }
-  };
+  const go = (n) => setCur((n + images.length) % images.length);
 
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const interval = setInterval(() => {
-      track.scrollBy({ left: 260, behavior: "smooth" });
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
-        track.scrollTo({ left: 0, behavior: "smooth" });
-      }
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    const t = setInterval(() => go(cur + 1), 3500);
+    return () => clearInterval(t);
+  }, [cur]);
 
   return (
-    <>
-      <div className="carousel">
-        <button className="nav prev" onClick={() => scroll(-1)}>❮</button>
-        <div className="app-gallery" id="carouselTrack" ref={trackRef}>
+    <div className="carousel-wrapper">
+      <div className="phone-frame">
+        <div
+          className="phone-inner"
+          style={{ transform: `translateX(-${cur * 100}%)` }}        >
           {images.map((img, i) => (
-            <div className="app-card" key={i} onClick={() => setLightbox(img.src)}>
+            <div className="slide" key={i}>
               <img src={img.src} alt={img.alt} />
             </div>
           ))}
         </div>
-        <button className="nav next" onClick={() => scroll(1)}>❯</button>
       </div>
 
-      {lightbox && (
-        <div
-          onClick={() => setLightbox(null)}
-          style={{
-            position: "fixed", top: 0, left: 0, width: "100%", height: "100%",
-            background: "rgba(0,0,0,0.9)", display: "flex", justifyContent: "center",
-            alignItems: "center", zIndex: 999, cursor: "pointer"
-          }}
-        >
-          <img src={lightbox} alt="Zoomed" style={{ maxWidth: "90%", maxHeight: "90%", borderRadius: "10px" }} />
-        </div>
-      )}
-    </>
+      <button onClick={() => go(cur - 1)}>‹</button>
+      <button onClick={() => go(cur + 1)}>›</button>
+
+      <div className="dots">
+        {images.map((_, i) => (
+          <span key={i} className={i === cur ? "dot on" : "dot"} onClick={() => go(i)} />
+        ))}
+      </div>
+    </div>
   );
 }

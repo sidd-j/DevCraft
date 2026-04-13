@@ -42,7 +42,7 @@ export default function Footer({ show }) {
         </div>
         <div className="footer-bottom">
           <p>© 2025 <span>DevCraft Studio</span>. All rights reserved.</p>
-          <p>Built with Passion by Siddhesh & Shubhangi</p>
+          <p>Built with Passion by Shubhangi & Siddhesh</p>
         </div>
       </div>
     </footer>

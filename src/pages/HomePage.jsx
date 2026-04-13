@@ -160,9 +160,10 @@ export default function HomePage({ show }) {
       </section>
 
       {/* STACK */}
-      <section className="stack-section">
+      <section className="process-section">
         <div className="container">
           <div className="fade">
+
             <div className="overline">Technologies</div>
             <h2>Modern stack.<br />Proven tools.</h2>
           </div>
