@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const contactDetails = [
   { icon: "💬", label: "WhatsApp (Preferred)", value: "+91 8879679671" },
-  { icon: "📧", label: "Email", value: "info@devcraft.studio" },
+  { icon: "📧", label: "Email", value: "jsiddhesh40@gmail.com" },
   { icon: "📍", label: "Based In", value: "Mumbai, Maharashtra, India" },
   { icon: "⏰", label: "Response Time", value: "Within 24 hours" },
 ];
