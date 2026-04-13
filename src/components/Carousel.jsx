@@ -1,21 +1,35 @@
 import { useRef, useEffect, useState } from "react";
 
-const images = [
-  { src: "src/assets/P1.jpeg", alt: "App screenshot 1" },
-  { src: "src/assets/P2.jpeg", alt: "App screenshot 2" },
-  { src: "src/assets/P3.jpeg", alt: "App screenshot 3" },
-  { src: "src/assets/P4.jpeg", alt: "App screenshot 4" },
-  { src: "src/assets/S1.jpg", alt: "StaySyne screenshot 1" },
-  { src: "src/assets/S2.jpg", alt: "StaySyne screenshot 2" },
-  { src: "src/assets/S3.jpg", alt: "StaySyne screenshot 3" },
-  { src: "src/assets/S4.jpg", alt: "StaySyne screenshot 4" },
-  { src: "src/assets/S5.jpg", alt: "StaySyne screenshot 5" },
-  { src: "src/assets/S6.jpg", alt: "StaySyne screenshot 6" },
-  { src: "src/assets/S7.jpg", alt: "StaySyne screenshot 7" },
-  { src: "src/assets/S8.jpg", alt: "StaySyne screenshot 8" },
-  { src: "src/assets/S9.jpg", alt: "StaySyne screenshot 9" },
-];
+import P1 from "../assets/P1.jpeg";
+import P2 from "../assets/P2.jpeg";
+import P3 from "../assets/P3.jpeg";
+import P4 from "../assets/P4.jpeg";
 
+import S1 from "../assets/S1.jpg";
+import S2 from "../assets/S2.jpg";
+import S3 from "../assets/S3.jpg";
+import S4 from "../assets/S4.jpg";
+import S5 from "../assets/S5.jpg";
+import S6 from "../assets/S6.jpg";
+import S7 from "../assets/S7.jpg";
+import S8 from "../assets/S8.jpg";
+import S9 from "../assets/S9.jpg";
+
+const images = [
+  { src: P1, alt: "App screenshot 1" },
+  { src: P2, alt: "App screenshot 2" },
+  { src: P3, alt: "App screenshot 3" },
+  { src: P4, alt: "App screenshot 4" },
+  { src: S1, alt: "StaySync screenshot 1" },
+  { src: S2, alt: "StaySync screenshot 2" },
+  { src: S3, alt: "StaySync screenshot 3" },
+  { src: S4, alt: "StaySync screenshot 4" },
+  { src: S5, alt: "StaySync screenshot 5" },
+  { src: S6, alt: "StaySync screenshot 6" },
+  { src: S7, alt: "StaySync screenshot 7" },
+  { src: S8, alt: "StaySync screenshot 8" },
+  { src: S9, alt: "StaySync screenshot 9" },
+];
 export default function Carousel() {
   const trackRef = useRef(null);
   const [lightbox, setLightbox] = useState(null);
